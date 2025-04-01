@@ -76,7 +76,7 @@ function App() {
     <>
       <h1>Bazar</h1>
       <div className='product-list'>
-        <ProductList />
+        {/* <ProductList /> */}
         <br />
         <BeerStyles beers={beers} />
       </div>
