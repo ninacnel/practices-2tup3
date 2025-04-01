@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <h1>Bazar</h1>
-     <ProductList/>
+        <div className='product-list'>
+        <ProductList/>
+        </div>
        <Footer/>
     </>
   )

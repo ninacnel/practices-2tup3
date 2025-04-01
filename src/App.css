@@ -5,3 +5,15 @@
   text-align: center;
 }
 
+.product-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50%;
+  gap: 20px;
+}
+
+.product-item {
+  width: 300px;
+  border: 2px solid antiquewhite; 
+  border-radius: 5px;
+}
