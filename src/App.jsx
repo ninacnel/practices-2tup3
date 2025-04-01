@@ -1,16 +1,86 @@
 import './App.css'
+import BeerStyles from './components/beerStyles/BeerStyles';
 import Footer from './components/footer/Footer'
 import ProductList from './components/productList/ProductList'
+
+const beers = [
+  {
+    id: 1,
+    beerName: "American",
+    beerStyle: "IPA",
+    price: 3,
+    available: true,
+  },
+  {
+    id: 2,
+    beerName: "Argenta",
+    beerStyle: "IPA",
+    price: 4,
+    available: false,
+  },
+  {
+    id: 3,
+    beerName: "Irish",
+    beerStyle: "Red",
+    price: 4,
+    available: true,
+  },
+  {
+    id: 4,
+    beerName: "Scotish",
+    beerStyle: "Red",
+    price: 3,
+    available: true,
+  },
+  {
+    id: 5,
+    beerName: "DeEssoCiTratta",
+    beerStyle: "APA",
+    price: 3,
+    available: true,
+  },
+  {
+    id: 6,
+    beerName: "Santa APA",
+    beerStyle: "APA",
+    price: 3,
+    available: true,
+  },
+  {
+    id: 7,
+    beerName: "German",
+    beerStyle: "Pilsen",
+    price: 1,
+    available: true,
+  },
+  {
+    id: 8,
+    beerName: "London Porter",
+    beerStyle: "Porter",
+    price: 2,
+    available: false,
+  },
+  {
+    id: 9,
+    beerName: "Scotish ALE",
+    beerStyle: "Red",
+    price: 5,
+    available: false,
+  },
+];
+
 
 function App() {
 
   return (
     <>
       <h1>Bazar</h1>
-        <div className='product-list'>
-        <ProductList/>
-        </div>
-       <Footer/>
+      <div className='product-list'>
+        <ProductList />
+        <br />
+        <BeerStyles beers={beers} />
+      </div>
+      <Footer />
     </>
   )
 }
