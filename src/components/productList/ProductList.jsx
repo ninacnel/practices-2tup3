@@ -18,7 +18,7 @@ const products = [
       details: "Cesta de mimbre con acabado natural, perfecta para organizar ropa, juguetes o artículos diversos."
     },
     {
-      name: "Almohada Ortognática",
+      name: "Almohada",
       price: 15.80,
       details: "Almohada de espuma viscoelástica que se adapta a la forma de tu cuello y cabeza, proporcionando descanso."
     },
@@ -32,20 +32,15 @@ const products = [
       price: 49.99,
       details: "Juego de 3 sartenes con recubrimiento antiadherente, fácil de limpiar, ideal para cocina diaria."
     },
-    {
-      name: "Organizador de Cajones",
-      price: 8.50,
-      details: "Set de organizadores de plástico para cajones, perfecto para mantener tus utensilios de cocina o accesorios ordenados."
-    }
   ];
   
 
-const ProductList = () => {
+const ProductList = ({dollar}) => {
   return (
     <>
      {products.map((product) => (
         <ProductItem
-        dollar="677"
+        dollar={dollar}
         name={product.name}
         price={product.price}
         details={product.details}
