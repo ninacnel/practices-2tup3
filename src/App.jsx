@@ -4,7 +4,7 @@ import BeerStyles from './components/beerStyles/BeerStyles';
 import Footer from './components/footer/Footer'
 import ProductList from './components/productList/ProductList'
 import ChangeDollar from './components/changeDollar/ChangeDollar';
-import { allProducts } from './components/data';
+import { allProducts, beers } from './components/data';
 import ProductForm from './components/productForm/ProductForm';
 
 
@@ -12,6 +12,7 @@ import ProductForm from './components/productForm/ProductForm';
 function App() {
   const [products, setProducts] = useState(allProducts);
   const [dollar, setDollar] = useState(1200);
+  const [hideDollar, setHideDollar] = useState(false);
 
   const handleAddProduct = (newProduct) =>{
       setProducts([...products, newProduct]);
@@ -20,12 +21,13 @@ function App() {
   return (
     <>
       <h1>Bazar</h1>
+      <button onClick={() => setHideDollar(!hideDollar)}>Hide Dollar</button>
       <div className='product-list'>
         <ProductList products={products} dollar={dollar}/>
         <ProductForm onAddNewProduct={handleAddProduct}/>
-        {/* <ChangeDollar onSetNewDollar={setDollar}/>
+        {hideDollar && (<ChangeDollar onSetNewDollar={setDollar}/>)}
         <br />
-        <BeerStyles beers={beers} /> */}
+        <BeerStyles beers={beers} />
       </div>
       <Footer />
     </>
