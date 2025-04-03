@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import './App.css'
 import BeerStyles from './components/beerStyles/BeerStyles';
 import Footer from './components/footer/Footer'
 import ProductList from './components/productList/ProductList'
+import ChangeDollar from './components/changeDollar/ChangeDollar';
 
 const beers = [
   {
@@ -71,12 +73,14 @@ const beers = [
 
 
 function App() {
+  const [dollar, setDollar] = useState(1200);
 
   return (
     <>
       <h1>Bazar</h1>
       <div className='product-list'>
-        <ProductList />
+        <ProductList dollar={dollar}/>
+        <ChangeDollar onSetNewDollar={setDollar}/>
         <br />
         <BeerStyles beers={beers} />
       </div>
