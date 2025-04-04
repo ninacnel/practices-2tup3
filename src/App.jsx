@@ -7,12 +7,10 @@ import ChangeDollar from './components/changeDollar/ChangeDollar';
 import { allProducts, beers } from './components/data';
 import ProductForm from './components/productForm/ProductForm';
 
-
-
 function App() {
   const [products, setProducts] = useState(allProducts);
+  const [hideDollar, setHideDollar] = useState(true);
   const [dollar, setDollar] = useState(1200);
-  const [hideDollar, setHideDollar] = useState(false);
 
   const handleAddProduct = (newProduct) =>{
       setProducts([...products, newProduct]);
@@ -26,6 +24,7 @@ function App() {
         <ProductList products={products} dollar={dollar}/>
         <ProductForm onAddNewProduct={handleAddProduct}/>
         {hideDollar && (<ChangeDollar onSetNewDollar={setDollar}/>)}
+        <br />
         <br />
         <BeerStyles beers={beers} />
       </div>
