@@ -19,14 +19,14 @@ function App() {
   return (
     <>
       <h1>Bazar</h1>
-      <button onClick={() => setHideDollar(!hideDollar)}>Hide Dollar</button>
+      <button className="btn btn-danger" onClick={() => setHideDollar(!hideDollar)}>Hide Dollar</button>
       <div className='product-list'>
         <ProductList products={products} dollar={dollar}/>
-        <ProductForm onAddNewProduct={handleAddProduct}/>
+        {/* <ProductForm onAddNewProduct={handleAddProduct}/>
         {hideDollar && (<ChangeDollar onSetNewDollar={setDollar}/>)}
         <br />
         <br />
-        <BeerStyles beers={beers} />
+        <BeerStyles beers={beers} /> */}
       </div>
       <Footer />
     </>
