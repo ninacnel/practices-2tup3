@@ -1,9 +1,28 @@
+import { BrowserRouter, Route, Routes } from 'react-router';
 import './App.css'
 import Dashboard from './components/dashboard/Dashboard';
+import NotFound from './components/notFound/NotFound';
+import Login from './components/login/Login';
+import { useState } from 'react';
+import Protected from './components/protected/Protected';
 
 function App() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const handleSignIn = () => {
+    setIsSignedIn(true);
+  }
+
   return (
-    <Dashboard />
+    <BrowserRouter>
+      <Routes>
+      <Route element={<Protected isSignedIn={isSignedIn} />}>
+            <Route path="/" element={<Dashboard />} />
+          </Route>
+        <Route path='/login' element={<Login onLogin={handleSignIn}/>}/>
+        <Route path='*' element={<NotFound/>}/> 
+      </Routes>
+    </BrowserRouter>
   )
 }
 

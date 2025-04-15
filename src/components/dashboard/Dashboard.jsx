@@ -7,7 +7,7 @@ import Footer from '../footer/Footer'
 
 const Dashboard = () => {
     const [products, setProducts] = useState(allProducts);
-    const [hideDollar, setHideDollar] = useState(true);
+    const [hideDollar, setHideDollar] = useState(false);
     const [dollar, setDollar] = useState(1200);
   
     const handleAddProduct = (newProduct) =>{
