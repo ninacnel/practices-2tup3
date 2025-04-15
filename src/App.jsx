@@ -5,6 +5,7 @@ import NotFound from './components/notFound/NotFound';
 import Login from './components/login/Login';
 import { useState } from 'react';
 import Protected from './components/protected/Protected';
+import ProductDetail from './components/productDetail/ProductDetail';
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
           </Route>
         <Route path='/login' element={<Login onLogin={handleSignIn}/>}/>
+        <Route path='/product/:id' element={<ProductDetail/>}/>
         <Route path='*' element={<NotFound/>}/> 
       </Routes>
     </BrowserRouter>
