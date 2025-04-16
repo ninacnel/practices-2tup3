@@ -17,12 +17,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route element={<Protected isSignedIn={isSignedIn} />}>
-            <Route path="/" element={<Dashboard />} />
-          </Route>
-        <Route path='/login' element={<Login onLogin={handleSignIn}/>}/>
-        <Route path='/product/:id' element={<ProductDetail/>}/>
-        <Route path='*' element={<NotFound/>}/> 
+        <Route element={<Protected isSignedIn={isSignedIn} />}>
+          <Route path="/" element={<Dashboard />} />
+        </Route>
+
+        <Route path='/product/:id' element={<ProductDetail />} />
+        <Route path='/login' element={<Login onLogin={handleSignIn} />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

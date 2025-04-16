@@ -3,6 +3,7 @@ import { useLocation} from 'react-router';
 
 const ProductDetail = () => {
   const location = useLocation();
+  
   const { name, details, price } = location.state || {};
 
   return (

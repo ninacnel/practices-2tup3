@@ -63,7 +63,7 @@ const Login = ({ onLogin }) => {
         <Card className="mt-5 mx-3 p-3 px-5 shadow">
             <Card.Body>
                 <Row className="mb-2">
-                    <h5>¡Bienvenidos a Books Champion!</h5>
+                    <h5>Iniciar sesion</h5>
                 </Row>
                 <Form onSubmit={handleSubmit}>
                     <FormGroup className="mb-4">

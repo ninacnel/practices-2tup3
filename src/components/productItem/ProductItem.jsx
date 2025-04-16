@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router';
 
 const ProductItem = ({ id, name, price, details, dollar }) => {
     const [available, setAvailable] = useState(true);
+
+    
     const navigate = useNavigate();
 
     const priceUpdated = price * dollar;
