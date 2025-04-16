@@ -1,35 +1,31 @@
-import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import './App.css'
-import BeerStyles from './components/beerStyles/BeerStyles';
-import Footer from './components/footer/Footer'
-import ProductList from './components/productList/ProductList'
-import ChangeDollar from './components/changeDollar/ChangeDollar';
-import { allProducts, beers } from './components/data';
-import ProductForm from './components/productForm/ProductForm';
+import Dashboard from './components/dashboard/Dashboard';
+import NotFound from './components/notFound/NotFound';
+import Login from './components/login/Login';
+import { useState } from 'react';
+import Protected from './components/protected/Protected';
+import ProductDetail from './components/productDetail/ProductDetail';
 
 function App() {
-  const [products, setProducts] = useState(allProducts);
-  const [hideDollar, setHideDollar] = useState(true);
-  const [dollar, setDollar] = useState(1200);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const handleAddProduct = (newProduct) =>{
-      setProducts([...products, newProduct]);
+  const handleSignIn = () => {
+    setIsSignedIn(true);
   }
 
   return (
-    <>
-      <h1>Bazar</h1>
-      <button className="btn btn-danger" onClick={() => setHideDollar(!hideDollar)}>Hide Dollar</button>
-      <div className='product-list'>
-        <ProductList products={products} dollar={dollar}/>
-        {/* <ProductForm onAddNewProduct={handleAddProduct}/>
-        {hideDollar && (<ChangeDollar onSetNewDollar={setDollar}/>)}
-        <br />
-        <br />
-        <BeerStyles beers={beers} /> */}
-      </div>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Protected isSignedIn={isSignedIn} />}>
+          <Route path="/" element={<Dashboard />} />
+        </Route>
+
+        <Route path='/product/:id' element={<ProductDetail />} />
+        <Route path='/login' element={<Login onLogin={handleSignIn} />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
